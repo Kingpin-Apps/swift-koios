@@ -110,7 +110,36 @@ struct MockTransport: ClientTransport {
                     ),
                     .init(data)
                 )
+            case "ogmios":
+                let ogmiosResponse = [
+                    "jsonrpc": "2.0",
+                    "method": "evaluateTransaction",
+                    "result": [
+                        [
+                            "validator": "spend:1",
+                            "budget": [
+                                "memory": 5236222,
+                                "cpu": 1212353
+                            ],
+                        ],
+                        [
+                            "validator": "mint:0",
+                            "budget": [
+                                "memory": 5000,
+                                "cpu": 42
+                            ]
+                        ]
+                    ]
+                ] as [String: Any]
                 
+                let data = try JSONSerialization.data(withJSONObject: ogmiosResponse)
+                return (
+                    HTTPResponse(
+                        status: .ok,
+                        headerFields: [.contentType: "application/json"]
+                    ),
+                    .init(data)
+                )
             default:
                 return (
                     HTTPResponse(status: .notFound),

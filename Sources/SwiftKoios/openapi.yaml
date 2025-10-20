@@ -2305,16 +2305,16 @@ paths:
         $ref: "#/components/requestBodies/ogmios"
       responses:
         "200":
-          description: Current tip of the chain, identified by a slot and a block header hash.
+          description: Forwarding for various methods to Ogmios.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ogmiostip"
+                $ref: "#/components/schemas/ogmiosresponse"
         "400":
           $ref: "#/components/responses/BadRequest"
       summary: Query Example
       description: |
-        Query the current tip of the Network.
+        Forwarding for various methods to Ogmios.
 
         <br>
         <div style="background-color: #222; padding: 12px 0px 12px 12px;border-left: 5px solid  rgb(173, 44, 44);font-size: var(--font-size-regular);">
@@ -6355,36 +6355,9 @@ components:
             $ref: "#/components/schemas/script_info/items/properties/value"
           bytes:
             $ref: "#/components/schemas/script_info/items/properties/bytes"
-    ogmiostip:
-      description: Current tip of the chain, identified by a slot and a block header hash.
+    ogmiosresponse:
+      description: Various responses forwarded from Ogmios.
       type: object
-      properties:
-        jsonrpc:
-          type: string
-          description: Identifier for JSON-RPC 2.0 standard
-          example: "2.0"
-        method:
-          type: string
-          description: The Ogmios method that was called in the request
-          example: "queryNetwork/tip"
-        result:
-          anyOf:
-            - type: string
-            - type: number
-            - type: array
-            - type: object
-            - type: 'null'
-          description: Result of the query
-          properties:
-            slot:
-              type: number
-              description: Absolute slot number on chain
-              example: 59886800
-            id:
-              type: string
-              description: Block Hash (Blake2b 32-byte hash digest, encoded in base16)
-              example: "df5678c9774b7bc8c60a4c83b63c3676e618640ad05f7d1ee775b68939cf77d1"
-          example: {"slot": 59886800, "id": "df5678c9774b7bc8c60a4c83b63c3676e618640ad05f7d1ee775b68939cf77d1"}
   headers: {}
   responses:
     NotFound:

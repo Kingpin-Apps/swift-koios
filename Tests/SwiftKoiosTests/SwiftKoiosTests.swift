@@ -106,4 +106,45 @@ struct KoiosTests {
         
         print("CLI Protocol Params test passed! Protocol version: \(protocolVersionDict!["major"] as? Int ?? 0).\(protocolVersionDict!["minor"] as? Int ?? 0)")
     }
+    
+    @Test("Test ogmios EvaluateTx")
+    func ogmiosEvaluateTx() async throws {
+        let result = try await koios.client.ogmios(
+            Operations.Ogmios.Input(
+                body: Components.RequestBodies.Ogmios.json(
+                    .init(
+                        jsonrpc: "2.0",
+                        method: .evaluateTransaction,
+                        params: .init(unvalidatedValue: [
+                            "transaction": [
+                                "cbor": "800a0004d81825820aabbccddeeff00112233445566778899aabbccddeeff001122334455667788990120a0"
+                            ]
+                        ])
+                    )
+                )
+            )
+        )
+        
+        let evaluationResult  = try result.ok.body.json
+        
+        #expect(evaluationResult.value["jsonrpc"] as! String == "2.0")
+        #expect(evaluationResult.value["method"] as! String == "evaluateTransaction")
+        
+        if let evaluationResults = evaluationResult.value["result"] as? [[String: Any]] {
+            
+            let ev1 = evaluationResults[0]
+            let ev2 = evaluationResults[1]
+            
+            #expect(ev1["validator"] as! String == "spend:1")
+            #expect(ev2["validator"] as! String == "mint:0")
+            
+            let budget1 = ev1["budget"] as! [String: Int]
+            let budget2 = ev2["budget"] as! [String: Int]
+            
+            #expect(budget1["memory"] == 5236222)
+            #expect(budget1["cpu"] == 1212353)
+            #expect(budget2["memory"] == 5000)
+            #expect(budget2["cpu"] == 42)
+        }
+    }
 }
