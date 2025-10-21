@@ -147,4 +147,28 @@ struct KoiosTests {
             #expect(budget2["cpu"] == 42)
         }
     }
+    
+    @Test("Test assetAddresses")
+    func assetAddresses() async throws {
+        let response = try await koios.client.assetAddresses(
+            Operations.AssetAddresses.Input(
+                query: .init(
+                    _assetPolicy: "750900e4999ebe0d58f19b634768ba25e525aaf12403bfe8fe130501",
+                    _assetName: "424f4f4b",
+                )
+            )
+        )
+        
+        let assetAddresses = try response.ok.body.json
+        
+        let first = assetAddresses[0]
+        
+        #expect(
+            first.paymentAddress == "addr1qxkfe8s6m8qt5436lec3f0320hrmpppwqgs2gah4360krvyssntpwjcz303mx3h4avg7p29l3zd8u3jyglmewds9ezrqdc3cxp"
+        )
+        #expect(
+            first.stakeAddress == "stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz"
+        )
+        #expect(first.quantity == "23")
+    }
 }

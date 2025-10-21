@@ -4600,15 +4600,13 @@ components:
             enum: ["registered", "not registered"]
             example: registered
           delegated_drep:
-            anyOf:
-              - type: string
-              - type: 'null'
+            type: [string, "null"]
             description: Account's current delegation status to DRep ID in CIP-129 Bech32 format
             example: drep1yfhyq6tztjksqqpd5lglc3zr2tn8vylgjh9xzz7n2p4l4lgk3qam3
           delegated_pool:
-            anyOf:
-            - $ref: "#/components/schemas/pool_list/items/properties/pool_id_bech32"
-            - type: 'null'
+            type: [string, "null"]
+            description: Bech32 representation of pool ID
+            example: pool1z5uqdk7dzdxaae5633fqfcu2eqzy3a3rgtuvy087fdld7yws0xt
           total_balance:
             type: string
             description: Total balance of the account including UTxO, rewards and MIRs (in number)
