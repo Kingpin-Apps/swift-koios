@@ -1,3 +1,9 @@
+## 0.1.2 (2025-10-21)
+
+### Fix
+
+- handle stake account info drep and poolid
+
 ## 0.1.1 (2025-10-20)
 
 ### Fix
