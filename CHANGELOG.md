@@ -1,3 +1,9 @@
+## 0.1.3 (2025-10-24)
+
+### Fix
+
+- handle anyOf and add a test for pool_info
+
 ## 0.1.2 (2025-10-21)
 
 ### Fix
