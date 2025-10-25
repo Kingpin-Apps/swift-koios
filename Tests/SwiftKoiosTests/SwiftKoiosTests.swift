@@ -198,5 +198,10 @@ struct KoiosTests {
             first.poolIdHex == "a532904ca60e13e88437b58e7c6ff66b8d5e7ec8d3f4b9e4be7820ec"
         )
         #expect(first.owners?.isEmpty == false)
+        #expect(first.relays?.isEmpty == false)
+        #expect(first.metaJson?.name == "Input Output Global (IOHK) - Private")
+        #expect(first.metaJson?.ticker == "IOGP")
+        #expect(first.metaJson?.homepage == "https://iohk.io")
+        #expect(first.poolStatus == .registered)
     }
 }

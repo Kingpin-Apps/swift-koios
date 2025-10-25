@@ -3492,9 +3492,7 @@ components:
             description: Pool metadata hash
             example: 37eb004c0dd8a221ac3598ca1c6d6257fb5207ae9857b7c163ae0f39259d6cc0
           meta_json:
-            anyOf:
-              - type: object
-              - type: 'null'
+            type: [object, "null"]
             properties:
               name:
                 type: string
@@ -3925,9 +3923,7 @@ components:
             description: The hash of the first block where these parameters are valid
             example: f9dc2a2fc3a2db09a71af007a740261de585afc9e3022b8e30535592ff4dd9e5
           cost_models:
-            anyOf:
-              - type: object
-              - type: 'null'
+            type: [object, "null"]
             description: The per language cost model in JSON
             example: null
           price_mem:
@@ -5123,9 +5119,7 @@ components:
           tx_hash:
             $ref: "#/components/schemas/utxo_infos/items/properties/tx_hash"
           metadata:
-            anyOf:
-              - type: object
-              - type: 'null'
+            type: [object, "null"]
             description: A JSON array containing details about metadata within transaction
             example:
               {
@@ -5289,9 +5283,7 @@ components:
               - $ref: "#/components/schemas/tx_metadata/items/properties/metadata"
             description: Latest minting transaction metadata (aligns with CIP-25)
           token_registry_metadata:
-            anyOf:
-              - type: object
-              - type: 'null'
+            type: [object, "null"]
             description: Asset metadata registered on the Cardano Token Registry
             properties:
               name:
@@ -5324,9 +5316,7 @@ components:
                 type: number
                 example: 0
           cip68_metadata:
-            anyOf:
-              - type: object
-              - type: 'null'
+            type: [object, "null"]
             description: CIP 68 metadata if present for asset
             example: {"222": {"fields": [{"map": [{"k": {"bytes": "6e616d65"}, "v": {"bytes": "74657374"}}]}], "constructor": 0}}
     asset_history:
@@ -5543,9 +5533,7 @@ components:
           meta_hash:
             $ref: "#/components/schemas/drep_info/items/properties/meta_hash"
           meta_json:
-            anyOf:
-              - type: object
-              - type: 'null'
+            type: [object, "null"]
             description: The payload as JSON
             example:
               {"body": {"title": "...", "...": "...", "references": [{"uri": "...", "@type": "Other", "label": "Hardfork to PV10"}]}, "authors": [{"name": "...", "witness": {"publicKey": "...", "signature": "...", "witnessAlgorithm": "ed25519"}}], "@context": {"body": {"@id": "CIP108:body", "@context": {"title": "CIP108:title", "abstract": "CIP108:abstract", "rationale": "CIP108:rationale", "motivation": "CIP108:motivation", "references": {"@id": "CIP108:references", "@context": {"uri": "CIP100:reference-uri", "Other": "CIP100:OtherReference", "label": "CIP100:reference-label", "referenceHash": {"@id": "CIP108:referenceHash", "@context": {"hashDigest": "CIP108:hashDigest", "hashAlgorithm": "CIP100:hashAlgorithm"}}, "GovernanceMetadata": "CIP100:GovernanceMetadataReference"}, "@container": "@set"}}}, "CIP100": "https://github.com/cardano-foundation/CIPs/blob/master/CIP-0100/README.md#", "CIP108": "https://github.com/cardano-foundation/CIPs/blob/master/CIP-0108/README.md#", "authors": {"@id": "CIP100:authors", "@context": {"name": "http://xmlns.com/foaf/0.1/name", "witness": {"@id": "CIP100:witness", "@context": {"publicKey": "CIP100:publicKey", "signature": "CIP100:signature", "witnessAlgorithm": "CIP100:witnessAlgorithm"}}}, "@container": "@set"}, "@language": "en-us", "hashAlgorithm": "CIP100:hashAlgorithm"}, "hashAlgorithm": "blake2b-256"}
@@ -5733,9 +5721,7 @@ components:
           meta_is_valid:
             $ref: "#/components/schemas/drep_metadata/items/properties/is_valid"
           withdrawal:
-            anyOf:
-              - type: object
-              - type: 'null'
+            type: [object, "null"]
             description: If not null, the amount withdrawn from treasury into stake address by this this proposal
             properties:
               stake_address:
@@ -5745,9 +5731,7 @@ components:
                 example: "31235800000"
           param_proposal:
             description: If not null, the proposed new parameter set
-            anyOf:
-              - type: object
-              - type: 'null'
+            type: [object, "null"]
             example: {"key_deposit": 1000000}
     voter_proposal_list:
       description: List of all governance action proposals where specified credential(DRep, SPO or Committee member) has cast a vote
