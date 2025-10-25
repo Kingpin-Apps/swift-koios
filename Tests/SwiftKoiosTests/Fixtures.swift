@@ -155,6 +155,62 @@ struct MockTransport: ClientTransport {
                     ),
                     .init(data)
                 )
+            case "pool_info":
+                let poolInfos = [
+                    [
+                        "pool_id_bech32": "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc",
+                        "pool_id_hex": "a532904ca60e13e88437b58e7c6ff66b8d5e7ec8d3f4b9e4be7820ec",
+                        "active_epoch_no": 0,
+                        "vrf_key_hash": "string",
+                        "margin": 0,
+                        "fixed_cost": "string",
+                        "pledge": "string",
+                        "deposit": "string",
+                        "reward_addr": "string",
+                        "reward_addr_delegated_drep": "string",
+                        "owners": [
+                            "stake1u8088wvudd7dp3rxl0v9xgng8r3j50s65ge3l3jvgd94keqfm3nv3"
+                        ],
+                        "relays": [
+                            [
+                                "dns": "string",
+                                "srv": "string",
+                                "ipv4": "string",
+                                "ipv6": "string",
+                                "port": 0
+                            ]
+                        ],
+                        "meta_url": "string",
+                        "meta_hash": "string",
+                        "meta_json": [
+                            "name": "Input Output Global (IOHK) - Private",
+                            "ticker": "IOGP",
+                            "homepage": "https://iohk.io",
+                            "description": "Our mission is to provide economic identity to the billions of people who lack it. IOHK will not use the IOHK ticker."
+                        ],
+                        "pool_status": "registered",
+                        "retiring_epoch": 0,
+                        "op_cert": "string",
+                        "op_cert_counter": 0,
+                        "active_stake": "string",
+                        "sigma": 0,
+                        "block_count": 0,
+                        "live_pledge": "string",
+                        "live_stake": "string",
+                        "live_delegators": 5,
+                        "live_saturation": 0,
+                        "voting_power": "string"
+                    ]
+                ] as [[String: Any]]
+                
+                let data = try JSONSerialization.data(withJSONObject: poolInfos)
+                return (
+                    HTTPResponse(
+                        status: .ok,
+                        headerFields: [.contentType: "application/json"]
+                    ),
+                    .init(data)
+                )
             default:
                 return (
                     HTTPResponse(status: .notFound),
