@@ -204,4 +204,28 @@ struct KoiosTests {
         #expect(first.metaJson?.homepage == "https://iohk.io")
         #expect(first.poolStatus == .registered)
     }
+    
+    @Test("Test poolList")
+    func poolList() async throws {
+        let response = try await koios.client.poolList(
+            Operations.PoolList.Input(
+                query: .init(
+                    select: [
+                        "pool_id_bech32",
+                    ]
+                )
+            )
+        )
+        
+        let poolList = try response.ok.body.json
+        
+        guard let first = poolList.first else {
+            Issue.record("No pool info returned")
+            return
+        }
+        
+        #expect(
+            first.poolIdBech32 == "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc"
+        )
+    }
 }

@@ -171,6 +171,61 @@ let koios = try Koios(
 )
 ```
 
+## Vertical Filtering
+
+SwiftKoios supports the `select` query parameter for vertical filtering, allowing you to specify which fields to return in API responses. This reduces bandwidth usage and improves performance by only returning the fields you need.
+
+### Basic Example
+
+```swift
+// Request only specific fields
+let response = try await koios.client.tip(
+    Operations.Tip.Input(
+        query: .init(
+            select: ["hash", "epoch_no", "block_height"]
+        )
+    )
+)
+// Generates: GET /tip?select=hash,epoch_no,block_height
+
+// Get blocks with selected fields
+let blocksResponse = try await koios.client.blocks(
+    Operations.Blocks.Input(
+        query: .init(
+            select: ["hash", "epoch_no", "tx_count", "block_time"]
+        )
+    )
+)
+```
+
+### Without Filtering (Default)
+
+Omit the `select` parameter to get all fields:
+
+```swift
+let response = try await koios.client.tip(
+    Operations.Tip.Input()
+)
+// Returns all available fields
+```
+
+### Benefits
+
+- **Reduce bandwidth**: Only fetch the data you need
+- **Improve performance**: Smaller responses mean faster processing
+- **Optimize memory**: Less data to parse and store
+- **Clear intent**: Explicitly state which fields you're using
+
+### Available on All GET Endpoints
+
+The `select` parameter works on all GET endpoints that return data, including:
+- Network endpoints (tip, genesis, totals, etc.)
+- Epoch endpoints
+- Block, transaction, address, asset endpoints
+- Pool, governance, and script endpoints
+
+See `Examples/SelectParameterExample.swift` for complete working examples.
+
 ## Error Handling
 
 ```swift

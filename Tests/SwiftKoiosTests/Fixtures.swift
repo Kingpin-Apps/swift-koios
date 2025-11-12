@@ -211,6 +211,33 @@ struct MockTransport: ClientTransport {
                     ),
                     .init(data)
                 )
+            case "pool_list":
+                let poolList = [
+                    [
+                        "pool_id_bech32": "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc",
+                    ],
+                    [
+                        "pool_id_bech32": "pool1uq8l234306m76unyz8kuwnkvmtvazaks6vuvyx3a3khngavvcw0",
+                    ],
+                    [
+                        "pool_id_bech32": "pool1ru2zh42397d6dyxdzslw5p6z4cewj38npl7prpjskv7fyl0gpga",
+                    ],
+                    [
+                        "pool_id_bech32": "pool1ddgcpgjcyawxw95se9x8qnc8gxgwjr4fqrk4vk6v9x47s0ggpjp",
+                    ],
+                    [
+                        "pool_id_bech32": "pool1rshru8pm6y0jy7jncmt6qzfs8u4f5qa5gvyh38kgec767t20z3d",
+                    ],
+                ] as [[String: Any]]
+                
+                let data = try JSONSerialization.data(withJSONObject: poolList)
+                return (
+                    HTTPResponse(
+                        status: .ok,
+                        headerFields: [.contentType: "application/json"]
+                    ),
+                    .init(data)
+                )
             default:
                 return (
                     HTTPResponse(status: .notFound),

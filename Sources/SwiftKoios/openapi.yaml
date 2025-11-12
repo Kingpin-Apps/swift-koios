@@ -162,6 +162,8 @@ paths:
     get:
       tags:
         - Network
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -182,6 +184,8 @@ paths:
     get:
       tags:
         - Network
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -203,6 +207,7 @@ paths:
       tags:
         - Network
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_epoch_no"
       responses:
         "200":
@@ -226,6 +231,8 @@ paths:
     get:
       tags:
         - Network
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -246,6 +253,8 @@ paths:
     get:
       tags:
         - Network
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -271,6 +280,8 @@ paths:
     get:
       tags:
         - Network
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -291,6 +302,8 @@ paths:
     get:
       tags:
         - Network
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -313,6 +326,7 @@ paths:
       tags:
         - Epoch
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_epoch_no"
         - $ref: "#/components/parameters/_include_next_epoch"
       responses:
@@ -336,6 +350,7 @@ paths:
       tags:
         - Epoch
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_epoch_no"
       responses:
         "200":
@@ -360,6 +375,7 @@ paths:
       tags:
         - Epoch
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_epoch_no"
       responses:
         "200":
@@ -383,6 +399,8 @@ paths:
     get:
       tags:
         - Block
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -584,6 +602,8 @@ paths:
     get:
       tags:
         - Transactions
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -839,6 +859,8 @@ paths:
     get:
       tags:
         - Stake Account
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -926,6 +948,7 @@ paths:
       tags:
         - Stake Account
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_stake_address"
         - $ref: "#/components/parameters/_after_block_height"
       responses:
@@ -1139,6 +1162,8 @@ paths:
     get:
       tags:
         - Asset
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -1160,6 +1185,7 @@ paths:
       tags:
         - Asset
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_asset_policy"
       responses:
         "200":
@@ -1181,6 +1207,8 @@ paths:
     get:
       tags:
         - Asset
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -1246,6 +1274,7 @@ paths:
       tags:
         - Asset
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_asset_policy"
         - $ref: "#/components/parameters/_asset_name"
       responses:
@@ -1269,6 +1298,7 @@ paths:
       tags:
         - Asset
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_asset_policy"
         - $ref: "#/components/parameters/_asset_name"
       responses:
@@ -1295,6 +1325,7 @@ paths:
       tags:
         - Asset
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_asset_policy_nft"
         - $ref: "#/components/parameters/_asset_name_nft"
       responses:
@@ -1318,6 +1349,7 @@ paths:
       tags:
         - Asset
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_asset_policy"
       responses:
         "200":
@@ -1343,6 +1375,7 @@ paths:
       tags:
         - Asset
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_asset_policy"
       responses:
         "200":
@@ -1365,6 +1398,7 @@ paths:
       tags:
         - Asset
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_asset_policy"
       responses:
         "200":
@@ -1387,6 +1421,7 @@ paths:
       tags:
         - Asset
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_asset_policy"
         - $ref: "#/components/parameters/_asset_name"
       responses:
@@ -1410,6 +1445,7 @@ paths:
       tags:
         - Asset
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_asset_policy"
         - $ref: "#/components/parameters/_asset_name"
         - $ref: "#/components/parameters/_after_block_height"
@@ -1436,6 +1472,7 @@ paths:
       tags:
         - Governance
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_epoch_no"
       responses:
         "200":
@@ -1457,6 +1494,8 @@ paths:
     get:
       tags:
         - Governance
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -1522,6 +1561,7 @@ paths:
       tags:
         - Governance
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_drep_id_optional"
       responses:
         "200":
@@ -1571,6 +1611,7 @@ paths:
       tags:
         - Governance
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_epoch_no"
         - $ref: "#/components/parameters/_drep_id_optional"
       responses:
@@ -1620,6 +1661,7 @@ paths:
       tags:
         - Governance
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_drep_id"
       responses:
         "200":
@@ -1641,6 +1683,8 @@ paths:
     get:
       tags:
         - Governance
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -1662,6 +1706,7 @@ paths:
       tags:
         - Governance
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_cc_hot_id"
       responses:
         "200":
@@ -1683,6 +1728,8 @@ paths:
     get:
       tags:
         - Governance
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -1704,6 +1751,7 @@ paths:
       tags:
         - Governance
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_voter_id"
       responses:
         "200":
@@ -1726,6 +1774,7 @@ paths:
       tags:
         - Governance
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_proposal_id"
       responses:
         "200":
@@ -1748,6 +1797,7 @@ paths:
       tags:
         - Governance
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_proposal_id"
       responses:
         "200":
@@ -1769,6 +1819,8 @@ paths:
     get:
       tags:
         - Governance      
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -1790,6 +1842,8 @@ paths:
     get:
       tags:
         - Pool
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -1833,6 +1887,7 @@ paths:
       tags:
         - Pool
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_pool_bech32"
       responses:
         "200":
@@ -1855,6 +1910,7 @@ paths:
       tags:
         - Pool
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_pool_bech32"
       responses:
         "200":
@@ -1877,6 +1933,7 @@ paths:
       tags:
         - Pool
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_pool_bech32"
         - $ref: "#/components/parameters/_epoch_no"
       responses:
@@ -1900,6 +1957,7 @@ paths:
       tags:
         - Pool
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_pool_bech32"
         - $ref: "#/components/parameters/_epoch_no"
       responses:
@@ -1948,6 +2006,7 @@ paths:
       tags:
         - Pool
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_pool_bech32"
         - $ref: "#/components/parameters/_epoch_no"
       responses:
@@ -1973,6 +2032,7 @@ paths:
       tags:
         - Pool
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_pool_bech32_optional"
       responses:
         "200":
@@ -1995,6 +2055,7 @@ paths:
       tags:
         - Pool
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_pool_epoch_no"
       responses:
         "200":
@@ -2017,6 +2078,7 @@ paths:
       tags:
         - Pool
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_epoch_no"
       responses:
         "200":
@@ -2038,6 +2100,8 @@ paths:
     get:
       tags:
         - Pool
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -2059,6 +2123,7 @@ paths:
       tags:
         - Governance
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_epoch_no"
         - $ref: "#/components/parameters/_pool_bech32_optional"
       responses:
@@ -2108,6 +2173,8 @@ paths:
     get:
       tags:
         - Pool
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -2150,6 +2217,8 @@ paths:
     get:
       tags:
         - Pool
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: Success!!
@@ -2193,6 +2262,8 @@ paths:
     get:
       tags:
         - Script
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: List of native script and creation tx hash pairs
@@ -2213,6 +2284,8 @@ paths:
     get:
       tags:
         - Script
+      parameters:
+        - $ref: "#/components/parameters/_select"
       responses:
         "200":
           description: List of Plutus script and creation tx hash pairs
@@ -2234,6 +2307,7 @@ paths:
       tags:
         - Script
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_script_hash"
       responses:
         "200":
@@ -2256,6 +2330,7 @@ paths:
       tags:
         - Script
       parameters:
+        - $ref: "#/components/parameters/_select"
         - $ref: "#/components/parameters/_script_hash"
         - $ref: "#/components/parameters/_extended"
       responses:
@@ -2514,6 +2589,21 @@ components:
       in: query
       required: true
       allowEmptyValue: false
+    _select:
+      name: select
+      in: query
+      description: Comma separated list of fields to include in the response (vertical filtering)
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+      example:
+        - epoch_no
+        - epoch_slot
+        - block_height
     _proposal_id:
       deprecated: false
       name: _proposal_id
