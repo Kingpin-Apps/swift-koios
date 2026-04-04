@@ -228,4 +228,23 @@ struct KoiosTests {
             first.poolIdBech32 == "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc"
         )
     }
+    
+    @Test("Test drepInfo")
+    func drepInfo() async throws {
+        let response = try await koios.client.drepInfo(
+            body: .json(.init(_drepIds: ["drep1kqhhkv66a0egfw7uyz7u8dv7fcvr4ck0c3ad9k9urx3yzhefup0"]))
+        )
+        
+        let drepInfoData = try response.ok.body.json
+        
+        guard let first = drepInfoData.first else {
+            Issue.record("No drep info returned")
+            return
+        }
+        
+        #expect(
+            first.drepId == "drep1kqhhkv66a0egfw7uyz7u8dv7fcvr4ck0c3ad9k9urx3yzhefup0"
+        )
+        #expect(first.drepStatus == .registered)
+    }
 }
