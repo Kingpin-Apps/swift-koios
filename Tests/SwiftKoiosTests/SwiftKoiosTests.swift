@@ -247,4 +247,34 @@ struct KoiosTests {
         )
         #expect(first.drepStatus == .registered)
     }
+    
+    @Test("Test accountInfo")
+    func accountInfo() async throws {
+        let response = try await koios.client.accountInfo(
+            Operations.AccountInfo.Input(
+                body: Components.RequestBodies.StakeAddresses
+                    .json(.init(
+                        _stakeAddresses: [
+                            "stake_test1upyz3gk6mw5he20apnwfn96cn9rscgvmmsxc9r86dh0k66gswf59n"
+                        ]
+                    ))
+            )
+        )
+        
+        let accountInfoData = try response.ok.body.json
+        
+        guard let first = accountInfoData.first else {
+            Issue.record("No account info returned")
+            return
+        }
+        
+        #expect(
+            first.stakeAddress == "stake_test1upyz3gk6mw5he20apnwfn96cn9rscgvmmsxc9r86dh0k66gswf59n"
+        )
+        #expect(first.status == .registered)
+        #expect(first.delegatedDrep == "drep15cfxz9exyn5rx0807zvxfrvslrjqfchrd4d47kv9e0f46uedqtc")
+        #expect(
+            first.delegatedPool == "pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy"
+        )
+    }
 }

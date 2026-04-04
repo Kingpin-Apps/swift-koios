@@ -262,6 +262,31 @@ struct MockTransport: ClientTransport {
                     ),
                     .init(data)
                 )
+                
+            case "account_info":
+                let accountInfo =
+                [
+                    [
+                        "stake_address": "stake_test1upyz3gk6mw5he20apnwfn96cn9rscgvmmsxc9r86dh0k66gswf59n",
+                        "status": "registered",
+                        "delegated_pool": "pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy",
+                        "delegated_drep": "drep15cfxz9exyn5rx0807zvxfrvslrjqfchrd4d47kv9e0f46uedqtc",
+                        "total_balance": "619154618165",
+                        "utxo": "300000000000",
+                        "rewards": "319154618165",
+                        "withdrawals": "12125369253",
+                        "rewards_available": "319154618165"
+                    ]
+                ]
+                
+                let data = try JSONSerialization.data(withJSONObject: accountInfo)
+                return (
+                    HTTPResponse(
+                        status: .ok,
+                        headerFields: [.contentType: "application/json"]
+                    ),
+                    .init(data)
+                )
             default:
                 return (
                     HTTPResponse(status: .notFound),
