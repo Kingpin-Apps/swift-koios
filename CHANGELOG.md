@@ -1,7 +1,8 @@
-## 0.1.6 (2026-04-04)
+## 0.1.7 (2026-04-04)
 
 ### Fix
 
+- handle regresion on delegated_pool and add test
 - update openapi.yaml and packages
 
 ## 0.1.5 (2025-11-11)
