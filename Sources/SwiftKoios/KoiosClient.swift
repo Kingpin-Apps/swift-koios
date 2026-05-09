@@ -4,7 +4,7 @@ import OpenAPIURLSession
 import HTTPTypes
 
 /// The network to use.
-public enum Network {
+public enum Network: Sendable {
     case mainnet
     case preprod
     case preview
@@ -32,11 +32,11 @@ extension HTTPField.Name {
 }
 
 /// A client middleware that injects a value into the `Authorization` header field of the request.
-package struct AuthenticationMiddleware {
-    
+package struct AuthenticationMiddleware: Sendable {
+
     /// The value for the `Authorization` header field.
     private let authorization: String
-    
+
     /// Creates a new middleware.
     /// - Parameter value: The value for the `Authorization` header field.
     package init(authorizationHeaderFieldValue authorization: String) { self.authorization = "Bearer \(authorization)" }
@@ -57,7 +57,7 @@ extension AuthenticationMiddleware: ClientMiddleware {
     }
 }
 
-public struct Koios {
+public struct Koios: Sendable {
     public let client: Client
     public let network: Network
     public let apiKey: String?
