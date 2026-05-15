@@ -67,7 +67,7 @@ public struct Koios: Sendable {
         apiKey: String? = nil,
         basePath: String? = nil,
         environmentVariable: String? = nil,
-        client: Client? = nil,
+        client: Client? = nil
     ) throws {
         self.network = network
         
