@@ -1,3 +1,9 @@
+## 0.2.2 (2026-09-03)
+
+### Fix
+
+- inline utxo_infos property types so they stop generating as untyped containers
+
 ## 0.2.1 (2026-05-15)
 
 ### Fix
