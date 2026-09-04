@@ -5534,39 +5534,97 @@ components:
             type: string
             description: A Cardano payment/base address (bech32 encoded)
             example: addr1qxkfe8s6m8qt5436lec3f0320hrmpppwqgs2gah4360krvyssntpwjcz303mx3h4avg7p29l3zd8u3jyglmewds9ezrqdc3cxp
+          # NOTE: The properties below are defined inline rather than via the deep
+          # $refs used upstream (e.g.
+          # "#/components/schemas/tx_info/items/properties/outputs/items/properties/value").
+          # OpenAPIKit only resolves references of the form "#/components/schemas/<Name>";
+          # deeper JSON pointers parse as empty schemas ("Found nothing but unsupported
+          # attributes") and generate untyped OpenAPIValueContainer properties instead of
+          # the declared types. Re-apply this inlining when importing a new upstream spec.
           value:
-            $ref: "#/components/schemas/tx_info/items/properties/outputs/items/properties/value"
+            type: string
+            description: Total sum of ADA on the UTxO
+            example: "157832856"
           stake_address:
-            $ref: "#/components/schemas/address_info/items/properties/stake_address"
+            type: [string, "null"]
+            description: Cardano staking address (reward account) in bech32 format
+            example: stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz
           payment_cred:
             type: [string, "null"]
             description: Payment credential
             example: de3c1c527e8826b9cd2030f88f75fc44cd4ce519b9ded9eb794b3794
           epoch_no:
-            $ref: "#/components/schemas/blocks/items/properties/epoch_no"
+            type: number
+            description: Epoch number of the block
+            example: 117
           block_height:
-            $ref: "#/components/schemas/blocks/items/properties/block_height"
+            type: number
+            description: Block height
+            example: 1794506
           block_time:
-            $ref: "#/components/schemas/blocks/items/properties/block_time"
+            type: number
+            description: UNIX timestamp of the block
+            example: 1704757130
           datum_hash:
-            $ref: "#/components/schemas/script_redeemers/items/properties/redeemers/items/properties/datum_hash"
+            type: [string, "null"]
+            description: Hash of datum (if any) connected to UTxO
+            example: 30c16dd243324cf9d90ffcf211b9e0f2117a7dc28d17e85927dfe2af3328e5c9
           inline_datum:
-            $ref: "#/components/schemas/tx_info/items/properties/outputs/items/properties/inline_datum"
+            type: [object, "null"]
+            description: Allows datums to be attached to UTxO (CIP-32)
+            properties:
+              bytes:
+                type: string
+                description: Datum bytes (hex)
+                example: 19029a
+              value:
+                type: object
+                description: Value (json)
+                example: { "int": 666 }
           reference_script:
-            $ref: "#/components/schemas/tx_info/items/properties/outputs/items/properties/reference_script"
+            type: [object, "null"]
+            description: Allow reference scripts to be used to satisfy script requirements during validation, rather than requiring the spending transaction to do so. (CIP-33)
+            properties:
+              hash:
+                type: string
+                description: Hash of referenced script
+                example: 67f33146617a5e61936081db3b2117cbf59bd2123748f58ac9678656
+              size:
+                type: number
+                description: Size in bytes
+                example: 14
+              type:
+                type: string
+                description: Type of script
+                example: plutusV1
+              bytes:
+                type: string
+                description: Script bytes (hex)
+                example: 4e4d01000033222220051200120011
+              value:
+                type: [object, "null"]
+                description: Value (json)
+                example: null
           asset_list:
             type: [array, "null"]
             description: An array of assets on the UTxO
             items:
               properties:
                 policy_id:
-                  $ref: "#/components/schemas/asset_info/items/properties/policy_id"
+                  type: string
+                  description: Asset Policy ID (hex)
+                  example: d3501d9531fcc25e3ca4b6429318c2cc374dbdbcf5e99c1c1e5da1ff
                 asset_name:
-                  $ref: "#/components/schemas/asset_info/items/properties/asset_name"
+                  type: [string, "null"]
+                  description: Asset Name (hex)
+                  example: 444f4e545350414d
                 fingerprint:
-                  $ref: "#/components/schemas/asset_info/items/properties/fingerprint"
+                  type: string
+                  description: The CIP14 fingerprint of the asset
+                  example: asset1ua6pz3yd5mdka946z8jw2fld3f8d0mmxt75gv9
                 decimals:
-                  $ref: "#/components/schemas/asset_info/items/properties/token_registry_metadata/properties/decimals"
+                  type: number
+                  example: 0
                 quantity:
                   type: string
                   description: Quantity of assets on the UTxO
